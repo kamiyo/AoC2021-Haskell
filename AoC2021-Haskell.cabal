@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Day01
+      Day02
       VendingMachine
   other-modules:
       Paths_AoC2021_Haskell
