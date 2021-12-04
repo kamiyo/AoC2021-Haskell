@@ -4,6 +4,7 @@ import System.Environment
 
 import Day01
 import Day02
+import Day03
 
 main :: IO ()
 main = do
@@ -17,6 +18,8 @@ main = do
              | day == 1 && part == 2 = day01_2
              | day == 2 && part == 1 = day02_1
              | day == 2 && part == 2 = day02_2
+             | day == 3 && part == 1 = day03_1
+             | day == 3 && part == 2 = day03_2
              | otherwise = (\x -> return ())
     runSolution input
 
