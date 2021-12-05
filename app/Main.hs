@@ -22,6 +22,7 @@ main = do
              | day == 3 && part == 1 = day03_1
              | day == 3 && part == 2 = day03_2
              | day == 4 && part == 1 = day04_1
+             | day == 4 && part == 2 = day04_2
              | otherwise = (\x -> return ())
     runSolution input
 
