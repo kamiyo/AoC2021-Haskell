@@ -29,6 +29,7 @@ library
       Day02
       Day03
       Day04
+      Day05
       VendingMachine
   other-modules:
       Paths_AoC2021_Haskell
@@ -36,6 +37,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , containers
     , split
     , vector
   default-language: Haskell2010
@@ -50,6 +52,7 @@ executable AoC2021-Haskell-exe
   build-depends:
       AoC2021-Haskell
     , base >=4.7 && <5
+    , containers
     , split
     , vector
   default-language: Haskell2010
