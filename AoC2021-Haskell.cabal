@@ -31,6 +31,8 @@ library
       Day04
       Day05
       Day06
+      Day07
+      Day08
       VendingMachine
   other-modules:
       Paths_AoC2021_Haskell
