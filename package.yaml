@@ -24,6 +24,8 @@ dependencies:
 - vector
 - split
 - containers
+- text
+- matrix
 
 library:
   source-dirs: src
