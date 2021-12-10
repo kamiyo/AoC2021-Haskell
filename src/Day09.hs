@@ -100,7 +100,8 @@ day09_2 input = do
         heightMap = M.fromList height width heightFlatten
         coordList = [(r, c) | r <- [1..height], c <- [1..width]]
         -- flows' adds paths to an accumulating map, and each flow iteration
-        -- terminates if it reaches a previously visited path
+        -- terminates if it reaches a previously visited path.
+        -- Slower, but leaner memory
         flows' = foldr (\(r, c) accumulator ->
                             let v = M.unsafeGet r c heightMap
                                 found = Map.size $ Map.filter (S.member (r, c)) accumulator
@@ -112,7 +113,7 @@ day09_2 input = do
                                             _ -> accumulator
                         ) Map.empty coordList
         -- flows maps each coord into a flow path, then you would use Map.fromListWith S.union
-        -- to merge the flows.
+        -- to merge the flows. Fastest, but memory hog
         flows = filter (\(k, v) -> S.size v /= 0) $ M.toList $ M.mapPos
                         (\(r, c) a ->
                             case a of
