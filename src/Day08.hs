@@ -52,14 +52,11 @@ deduceNumbers numSet =
         three = head $ filter (\s -> Set.size s == 5 && one `Set.isSubsetOf` s) numSet
         six = head $ filter (\s -> Set.size s == 6 && Set.size (Set.intersection s one) /= 2) numSet
         nine = head $ filter (\s -> Set.size s == 6 && four `Set.isSubsetOf` s) numSet
-        topLine = Set.difference seven one
-        upperLeftAndMid = Set.difference four one
-        horizontals = foldr1 Set.intersection (filter (\s -> Set.size s == 5) numSet)
-        midLine = Set.intersection upperLeftAndMid horizontals
-        bottomLine = Set.difference horizontals (Set.union topLine midLine)
-        upperLeft = Set.difference upperLeftAndMid midLine
-        five = head $ filter (\s -> Set.size s == 5 && upperLeft `Set.isSubsetOf` s) numSet
-        two = head $ filter (\s -> Set.size s == 5 && s /= five && s/= three) numSet
+        lowerLeft = Set.difference eight nine
+        two = head $ filter (\s -> Set.size s == 5 && lowerLeft `Set.isSubsetOf` s) numSet
+        horizontals = Set.difference three one
+        midLine = Set.intersection four horizontals
+        five = head $ filter (\s -> Set.size s == 5 && s /= two && s/= three) numSet
         zero = head $ filter (\s -> Set.size s == 6 && Set.disjoint s midLine) numSet
     in [zero, one, two, three, four, five, six, seven, eight, nine]
 
