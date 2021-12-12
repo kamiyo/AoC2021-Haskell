@@ -13,8 +13,7 @@ import Debug.Trace (traceShow)
 import Data.List (elemIndex, sortBy)
 import qualified Data.Bifunctor as B
 
-readChars :: String -> [Int]
-readChars inputs = map (read . T.unpack) $ T.chunksOf 1 (T.pack inputs)
+import Utils (readChars)
 
 day09_1 :: String -> IO ()
 day09_1 input = do
@@ -82,9 +81,9 @@ stepFlow' heightMap (row, col) temp accumulator =
                                     [(pred row, col), (succ row, col), (row, pred col), (row, succ col)]))
         min = minimum surrounding
     in case min of
-        (height, coord) | height <= curr -> 
+        (height, coord) | height <= curr ->
             let found = Map.toAscList $ Map.filter (S.member coord) accumulator
-            in case found of 
+            in case found of
                 [] -> stepFlow' heightMap coord (S.insert coord temp) accumulator
                 [(final, _)] -> (final, S.insert (row, col) temp)
                 _ -> error "shouldn't be here"
