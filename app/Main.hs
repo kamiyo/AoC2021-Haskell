@@ -15,6 +15,7 @@ import Day10
 import Day11
 import Day12
 import Day13
+import Day14
 
 main :: IO ()
 main = do
@@ -50,6 +51,8 @@ main = do
              | day == 12 && part == 2 = day12_2
              | day == 13 && part == 1 = day13_1
              | day == 13 && part == 2 = day13_2
+             | day == 14 && part == 1 = day14_1
+             | day == 14 && part == 2 = day14_2
              | otherwise = (\x -> return ())
     runSolution input
 
