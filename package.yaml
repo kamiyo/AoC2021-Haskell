@@ -27,6 +27,8 @@ dependencies:
 - text
 - matrix
 - mtl
+- heaps
+- array
 
 library:
   source-dirs: src
